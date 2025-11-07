@@ -189,6 +189,7 @@ your_project/
 └── static/
 8. Build Command
 pyinstaller --onefile --add-data "your_project;your_project" --add-data "your_app;your_app" --add-data "templates;templates" --add-data "static;static" --hidden-import=django --hidden-import=mysql main.py
+pyinstaller --onefile --add-data "config;config" --add-data "dividends;dividends" --add-data "templates;templates" --add-data "static;static" --hidden-import=django --hidden-import=mysql --hidden-import=django-crispy-forms main.py
 Important Considerations:
 MySQL Dependency: The target system must have MySQL v5 installed and running
 
