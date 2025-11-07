@@ -7,7 +7,7 @@ import time
 def run_django():
     """Run Django development server"""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
-    time.sleep(5)
+    time.sleep(2)
     webbrowser.open('http://127.0.0.1:8024')
     execute_from_command_line(['manage.py', 'runserver', '127.0.0.1:8024', '--noreload'])
 
