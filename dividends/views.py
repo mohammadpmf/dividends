@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Dividend
 
@@ -14,7 +14,7 @@ class DividendList(generic.ListView):
 
 
 
-class DividendCreate(generic.CreateView):
+class DividendCreate(LoginRequiredMixin, generic.CreateView):
     model = Dividend
     template_name = "create.html"
     fields = [
@@ -39,7 +39,7 @@ class DividendCreate(generic.CreateView):
         return super().form_valid(form)
 
 
-class DividendUpdate(generic.UpdateView):
+class DividendUpdate(LoginRequiredMixin, generic.UpdateView):
     model = Dividend
     template_name = "update.html"
     fields = [
@@ -64,7 +64,7 @@ class DividendUpdate(generic.UpdateView):
         return super().form_valid(form)
 
 
-class DividendDelete(generic.DeleteView):
+class DividendDelete(LoginRequiredMixin, generic.DeleteView):
     model = Dividend
     template_name = "delete.html"
     context_object_name = "dividend"
